@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         //se crea un adaptador customizado
         customAdapter = new NoticiaAdapter(this);
         lv_noticias.setAdapter(customAdapter);
+        //hola
 
 
         Noticia noticia1 = new Noticia("Cambio en el logo de hoy es diseño", "van a cambiar el logo de hoy es diseño!!!!!!!! nisiquiera sabia que eso tenia logo", "31/08/2018");
