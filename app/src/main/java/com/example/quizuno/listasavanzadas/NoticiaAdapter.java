@@ -76,8 +76,7 @@ public class NoticiaAdapter extends BaseAdapter {
                     }
                 }
 
-
-
+                
                 //remueve la noticia respecto a la posicion del arreglo
                //noticias.remove(position);
                //notifyDataSetChanged();
