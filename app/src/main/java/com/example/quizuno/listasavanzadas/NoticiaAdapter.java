@@ -1,8 +1,14 @@
 package com.example.quizuno.listasavanzadas;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,21 +55,36 @@ public class NoticiaAdapter extends BaseAdapter {
         TextView item_titulo = renglon.findViewById(R.id.item_titulo);
         TextView item_fecha = renglon.findViewById(R.id.item_fecha);
         TextView item_descripcion = renglon.findViewById(R.id.item_descripcion);
-        Button item_action = renglon.findViewById(R.id.item_action);
+        Button item_llamar = renglon.findViewById(R.id.item_llamar);
 
         //se linkea el arraylist al listView
         item_titulo.setText(noticias.get(position).getTitulo());
         item_fecha.setText(noticias.get(position).getFecha());
         item_descripcion.setText(noticias.get(position).getDescripcion());
-        item_action.setOnClickListener(new View.OnClickListener() {
+        item_llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final int Request_phone_call= 1;
+                Intent llamar = new Intent(Intent.ACTION_CALL);
+                llamar.setData(Uri.parse("tel:3116435652"));
+
+                if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                    if(ContextCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                        ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CALL_PHONE}, Request_phone_call);
+                    }else{
+                        activity.startActivity(llamar);
+                    }
+                }
+
+
+
                 //remueve la noticia respecto a la posicion del arreglo
                //noticias.remove(position);
                //notifyDataSetChanged();
 
-                Intent intent = new Intent(activity, NoticiaCompleta.class);
-                activity.startActivity(intent);
+                //ir a otra actividad
+                //Intent intent = new Intent(activity, NoticiaCompleta.class);
+                //activity.startActivity(intent);
 
                 //Ejemplo de como se debe hacer cuando hacemos el intent desde la mainActivity
                 //Intent intent= new Intent(MainActivity.this, NoticiaCompleta.class);
