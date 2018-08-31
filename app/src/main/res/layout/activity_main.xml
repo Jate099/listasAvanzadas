@@ -6,6 +6,18 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escriba un titulo"
+        android:id="@+id/et_colocartitulo"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GENERAR NOTICIONONON RANDOMICO"
+        android:id="@+id/btn_generar"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
