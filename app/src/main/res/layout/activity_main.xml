@@ -18,6 +18,12 @@
         android:text="GENERAR NOTICIONONON RANDOMICO"
         android:id="@+id/btn_generar"/>
 
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Genero"
+        android:checked="true"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
